@@ -1,5 +1,7 @@
 # Angular 5 - Canvas Image Viewer
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/hallysonh/ngx-imageviewer.svg)](https://greenkeeper.io/)
+
 This project generate a image viewer using canvas.
 
 ## Features
