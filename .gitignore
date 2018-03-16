@@ -3,8 +3,7 @@
 # compiled output
 /dist
 /tmp
-/out-tsc
-/.ng_pkg_build
+/ngx-imageviewer
 
 # dependencies
 /node_modules
@@ -31,8 +30,10 @@
 /coverage
 /libpeerconnection.log
 npm-debug.log
+yarn-error.log
 testem.log
 /typings
+/config/gulp-tasks/README.md
 
 # e2e
 /e2e/*.js

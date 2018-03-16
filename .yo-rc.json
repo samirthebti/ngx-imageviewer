@@ -1,0 +1,42 @@
+{
+  "generator-ngx-library": {
+    "version": "5.6.0",
+    "authorName": "Hallyson Almeida",
+    "authorEmail": "hallysonh@gmail.com",
+    "githubUsername": "hallysonh",
+    "githubRepoName": "ngx-imageviewer",
+    "projectName": "ngx-imageviewer",
+    "projectVersion": "1.2.0",
+    "projectDescription": "Angular 5 Image viewer using canvas to render images and pdfs",
+    "projectKeywords": [
+      "image",
+      "viewer",
+      "pdf",
+      "canvas",
+      "ng",
+      "angular",
+      "ngx"
+    ],
+    "ngVersion": "5.0.0",
+    "ngModules": [
+      "core",
+      "common"
+    ],
+    "otherDependencies": [
+      "pdfjs-dist",
+      "hammerjs"
+    ],
+    "dependenciesRange": "^",
+    "ngPrefix": "ngx",
+    "testingFramework": "karma",
+    "useGreenkeeper": true,
+    "useCompodoc": true,
+    "enforceNgGitCommitMsg": true,
+    "exclusions": [
+      "demo/src/jestGlobalMocks.ts",
+      "demo/src/setupJest.ts",
+      "config/jestGlobalMocks.ts",
+      "config/setupJest.ts"
+    ]
+  }
+}
