@@ -13,16 +13,10 @@ export { ImageViewerConfig, IMAGEVIEWER_CONFIG, IMAGEVIEWER_CONFIG_DEFAULT } fro
 @NgModule({
   imports: [CommonModule],
   exports: [ImageViewerComponent],
-  declarations: [ImageViewerComponent]
+  declarations: [ImageViewerComponent],
+  providers: [{
+    provide: IMAGEVIEWER_CONFIG,
+    useValue: IMAGEVIEWER_CONFIG_DEFAULT
+  }, ImageCacheService]
 })
-export class ImageViewerModule {
-  static forRoot(config: ImageViewerConfig): ModuleWithProviders {
-    return {
-      ngModule: ImageViewerModule,
-      providers: [{
-        provide: IMAGEVIEWER_CONFIG,
-        useValue: Object.assign({}, IMAGEVIEWER_CONFIG_DEFAULT, config)
-      }, ImageCacheService]
-    };
-  }
-}
+export class ImageViewerModule { }

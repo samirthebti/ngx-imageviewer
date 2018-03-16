@@ -5,7 +5,7 @@
     "authorEmail": "hallysonh@gmail.com",
     "githubUsername": "hallysonh",
     "githubRepoName": "ngx-imageviewer",
-    "projectName": "ngx-imageviewer",
+    "projectName": "@hallysonh/ngx-imageviewer",
     "projectVersion": "1.2.0",
     "projectDescription": "Angular 5 Image viewer using canvas to render images and pdfs",
     "projectKeywords": [

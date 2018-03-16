@@ -79,7 +79,7 @@ const argv = yargs
   .argv;
 
 const config = {
-  libraryName: 'ngx-imageviewer',
+  libraryName: '@hallysonh/ngx-imageviewer',
   unscopedLibraryName: 'ngx-imageviewer',
   allSrc: 'src/**/*',
   allTs: 'src/**/!(*.spec).ts',
@@ -711,9 +711,9 @@ gulp.task('release', (cb) => {
 // Utility Tasks
 /////////////////////////////////////////////////////////////////////////////
 
-// Link 'dist' folder (create a local 'ng-scrollreveal' package that symlinks to it)
-// This way, we can have the demo project declare a dependency on 'ng-scrollreveal' (as it should)
-// and, thanks to 'npm link ng-scrollreveal' on demo project, be sure to always use the latest built
+// Link 'dist' folder (create a local '@hallysonh/ngx-imageviewer' package that symlinks to it)
+// This way, we can have the demo project declare a dependency on '@hallysonh/ngx-imageviewer' (as it should)
+// and, thanks to 'npm link @hallysonh/ngx-imageviewer' on demo project, be sure to always use the latest built
 // version of the library ( which is in 'dist/' folder)
 gulp.task('link', () => {
   return execExternalCmd('npm', 'link', { cwd: `${config.outputDir}` });
