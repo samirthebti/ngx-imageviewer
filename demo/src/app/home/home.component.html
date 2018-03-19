@@ -1,4 +1,4 @@
-<div class="jumbotron jumbotron-fluid">
+<div class="banner">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4 d-flex justify-content-center justify-content-md-end">
@@ -14,32 +14,29 @@
         </p>
 			</div>
 		</div>
-
 	</div>
 </div>
 
 <section class="home">
-  <div class="container">
-		<div class="canvasForm">
-      <div>
-        <label>Canvas Dimention:</label>
-        <input name="canvasWidth" [(ngModel)]="canvasWidth">
-        <span>X</span>
-        <input name="canvasHeight" [(ngModel)]="canvasHeight">
-      </div>
-      <div>
-        <label>Resource URL: </label>
-        <input name="imageSrc" [(ngModel)]="imageSrc" size="100">
-      </div>
+  <div class="container col-sm-4 justify-content-center justify-content-md-end">
+    <h2 id="features">Features</h2>
+    <ul>
+      <li>Configurable</li>
+      <li>Resizeble component</li>
+      <li>Supports JPEG, PNG, GIF and <strong>PDF</strong></li>
+      <li>Support File Objects</li>
+      <li>Avaliable actions:
+        <ul>
+          <li><strong>Rotate</strong></li>
+          <li><strong>Zoom</strong></li>
+          <li>Reset to maximize size</li>
+          <li>Free movable</li>
+          <li>Change page (available just for PDF files)</li>
+        </ul>
+      </li>
+    </ul>
 
-      <div class="row">
-        <label>Samples URLs: </label>
-        <p class="buttons">
-          <button class="btn btn-outline-primary" *ngFor="let s of samples; let i = index" (click)="imageSrc = s.url">{{ s.label }}</button>
-        </p>
-      </div>
-    </div>
-
-    <ngx-imageviewer [src]="imageSrc" [width]="canvasWidth" [height]="canvasHeight"></ngx-imageviewer>
+    <h2 id="features">Demo</h2>
+    <p>View the component in action at <a routerLink="/example">the examples section</a></p>
   </div>
 </section>

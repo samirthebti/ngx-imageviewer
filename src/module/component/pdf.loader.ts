@@ -4,6 +4,7 @@ import { ImageViewerConfig } from './imageviewer.config';
 import { PDFJSStatic, PDFDocumentProxy, PDFPageProxy } from 'pdfjs-dist';
 
 declare var PDFJS: PDFJSStatic;
+declare var pdfjsDistBuildPdf: PDFJSStatic;
 
 export class PdfResourceLoader extends ResourceLoader {
   private _pdf: PDFDocumentProxy;
@@ -12,6 +13,7 @@ export class PdfResourceLoader extends ResourceLoader {
 
   constructor(private _imageCache: ImageCacheService) {
     super();
+    PDFJS = PDFJS || pdfjsDistBuildPdf;
     if (!PDFJS.workerSrc) {
       PDFJS.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${(PDFJS as any).version}/pdf.worker.min.js`;
     }

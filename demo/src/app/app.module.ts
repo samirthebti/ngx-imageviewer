@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HighlightModule } from 'ngx-highlightjs';
 
-import { ImageViewerModule, IMAGEVIEWER_CONFIG, ImageViewerConfig } from '@hallysonh/ngx-imageviewer';
+import { IMAGEVIEWER_CONFIG, ImageViewerConfig } from '@hallysonh/ngx-imageviewer';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppSharedModule } from './shared/shared.module';
@@ -34,12 +35,12 @@ export const MY_IMAGEVIEWER_CONFIG: ImageViewerConfig = {
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ngx-imageviewer-demo-id' }),
+    HighlightModule.forRoot({ theme: 'railscasts' }),
     FormsModule,
     HttpModule,
     AppRoutingModule,
     AppSharedModule,
-    HomeModule,
-    ImageViewerModule,
+    HomeModule
   ],
   providers: [{
     provide: IMAGEVIEWER_CONFIG,

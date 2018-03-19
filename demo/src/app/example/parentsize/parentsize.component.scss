@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+h2 {
+  margin-left: 20px;
+  white-space: nowrap;
+}
+
+.imagewrapper {
+  flex: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+  max-width: calc(100% - 40px);
+  min-width: calc(100% - 40px);
+  width: calc(100% - 40px);
+  max-height: calc(100vh - 258px);
+  min-height: calc(100vh - 258px);
+  height: calc(100vh - 258px);
+  margin: 0 20px 20px;
+}

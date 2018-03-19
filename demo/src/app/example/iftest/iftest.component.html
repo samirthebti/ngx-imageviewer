@@ -1,0 +1,19 @@
+<section class="home">
+  <div class="container">
+    <h2>Auto resizing with parent</h2>
+    
+		<form class="canvasForm">
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label>ngIf condition: </label>
+          <p class="buttons">
+            <button class="btn btn-outline-primary" (click)="toggleVisibility()">Toggle Visibility</button>
+            <button class="btn btn-outline-primary" (click)="toggleUrl()">Toggle URL</button>
+          </p>
+        </div>
+      </div>
+    </form>
+
+    <ngx-imageviewer *ngIf="condition" [src]="url"></ngx-imageviewer>
+  </div>
+</section>

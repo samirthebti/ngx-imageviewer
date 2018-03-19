@@ -1,11 +1,10 @@
-
 <div class="container" style="padding-left: 0; padding-right: 0;">
   <header class="navbar navbar-light navbar-fixed-top navbar-expand-lg">
 
     <a class="navbar-brand" routerLink="/home" (click)="navbarCollapsed = true">ngx-imageviewer</a>
 
-    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed"
-            [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed" [attr.aria-expanded]="!navbarCollapsed"
+      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -13,6 +12,15 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/getting-started" (click)="navbarCollapsed = true">Getting Started</a>
+        </li>
+        <li class="nav-item dropdown" routerLinkActive="active" ngbDropdown >
+          <a ngbDropdownToggle id="exampleOptions" href="javascript:" class="nav-link dropdown-toggle" data-toggle="dropdown" (click)="navbarCollapsed = true" role="button" aria-haspopup="true" aria-expanded="false">Examples</a>
+          <div ngbDropdownMenu aria-labelledby="exampleOptions" class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/example/simplestuse">Simplest use</a>
+            <a class="dropdown-item" routerLink="/example/parentsize">Autoresizing</a>
+            <a class="dropdown-item" routerLink="/example/iftest">Conditional display</a>
+            <a class="dropdown-item" routerLink="/example/sourcefile">Sourcing file</a>
+          </div>
         </li>
       </ul>
     </div>

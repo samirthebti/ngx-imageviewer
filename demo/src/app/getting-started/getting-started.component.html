@@ -1,4 +1,4 @@
-<div class="jumbotron jumbotron-fluid">
+<div class="banner">
   <div class="container">
     <h1>Getting Started</h1>
   </div>
@@ -6,7 +6,138 @@
 
 <section class="getting-started">
   <div class="container">
-<!-- put your content here-->
-Put your content here. Typically instructions about how to install/use your library.
+    <h1 id="title">Angular 5 - Canvas Image and PDF viewer</h1>
+
+    <h2 id="dependencies">Dependencies</h2>
+    <ul>
+      <li><a href="https://angular.io">Angular</a> (<em>requires</em> Angular 5 or higher, tested with 5.2.9)</li>
+      <li><a href="https://hammerjs.github.io/">HammerJS</a> (<em>requires</em> HammerJS 2 or higher, tested with 2.0.8)</li>
+      <li><a href="https://mozilla.github.io/pdf.js/">PDF.js</a> (<em>requires</em> PDF.js 2.0.288)</li>
+    </ul>
+
+    <h2 id="installation">Installation</h2>
+    <p>Install above dependencies via <em>npm</em> or <em>yarn</em> by:</p>
+    <pre><code highlight lang="bash">yarn add @angular/core@5.x @angular/common@5.x hammerjs@2.x</code></pre>
+    <p>Now install <code class="inline">ngx-imageviewer</code> via:</p>
+    <pre><code highlight lang="bash">yarn add @hallysonh/ngx-imageviewer</code></pre>
+
+    <h2 id="iconfont">Icon Font</h2>
+    <p>You can use any icon font to render the button's icons. However, the default icon font is the Google's Material Icons. To use them you can just add the follow line to your index.html:</p>
+    <pre><code highlight lang="html">&lt;link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"&gt;</code></pre>
+    <p>Optionaly, you can also install the font library via npm or yarn.</p>
+
+    <hr />
+
+    <h3 id="systemjs">SystemJS</h3>
+    <blockquote>
+      <p>
+        <strong>Note</strong>: If you are using
+        <code class="inline">SystemJS</code>, you should adjust your configuration to point to the UMD bundle. In your systemjs config file,
+        <code class="inline">map</code> needs to tell the System loader where to look for
+        <code class="inline">ngx-imageviewer</code>&#58;</p>
+    </blockquote>
+
+    <pre><code highlight>map&#58; &#123;
+  '@hallysonh/ngx-imageviewer'&#58; 'node_modules/@hallysonh/ngx-imageviewer/bundles/ngx-imageviewer.umd.js',
+&#125;</code></pre>
+
+    <hr />
+
+    <p>Once installed you need to import the main module:</p>
+
+    <pre><code highlight>import &#123; ImageViewerModule &#125; from '@hallysonh/ngx-imageviewer';</code></pre>
+
+    <p>The only remaining part is to list the imported module in your application module:</p>
+
+    <pre><code highlight>import &#123; ImageViewerModule &#125; from '@hallysonh/ngx-imageviewer';
+
+@NgModule(&#123;
+  declarations&#58; [AppComponent, ...],
+  imports&#58; [ImageViewerModule, ...],
+  bootstrap&#58; [AppComponent]
+&#125;)
+export class AppModule &#123;&#125;</code></pre>
+
+    <h2 id="usage">Usage</h2>
+
+    <p>Use the follow code on your html:</p>
+
+    <pre><code highlight>&lt;ngx-imageviewer [src]="imageSrc"&gt;&lt;/ngx-imageviewer&gt;</code></pre>
+
+    <p>Optionaly, you can provide the fields <code class="inline">width</code> and <code class="inline">height</code>. If you omit those values, the width and height in the config object will be used.</p>
+
+    <h2 id="supportpdf">Support PDF</h2>
+
+    <p>To support PDF files you must first include <code class="inline">pdfjs</code> by <code class="inline">yarn add pdfjs-dist@2.0.2880</code> and add its reference in your <code class="inline">.angular-cli.json</code> file, like below:</p>
+
+    <pre><code highlight>&#123;
+  ...
+  "scripts"&#58; [
+    "../node_modules/pdfjs-dist/build/pdf.min.js"
+  ],
+  ...
+&#125;</code></pre>
+
+    <h2 id="customconfiguration">Custom Configuration</h2>
+
+    <p>Optionaly, you can provide a custom configuration like below:</p>
+
+    <pre><code highlight>import &#123; IMAGEVIEWER_CONFIG, ImageViewerConfig &#125; from '@hallysonh/ngx-imageviewer';
+
+const MY_IMAGEVIEWER_CONFIG&#58; ImageViewerConfig = &#123;
+  buttonStyle&#58; &#123;
+    bgStyle&#58; '#B71C1C' // custom container's background style
+  &#125;
+&#125;;
+
+@Component(&#123;
+  providers&#58; [
+    &#123; provide&#58; IMAGEVIEWER_CONFIG, useValue&#58; MY_IMAGEVIEWER_CONFIG &#125;
+  ]
+&#125;)</code></pre>
+
+    <p>The default configuration available is:</p>
+
+    <pre><code highlight>export const IMAGEVIEWER_CONFIG_DEFAULT&#58; ImageViewerConfig = &#123;
+  width&#58; 800, // component default width
+  height&#58; 600, // component default height
+  bgStyle&#58; '#ECEFF1', // component background style
+  scaleStep&#58; 0.1, // zoom scale step (using the zoom in/out buttons)
+  rotateStepper&#58; false, // touch rotate should rotate only 90 to 90 degrees
+  loadingMessage&#58; 'Loading...',
+  buttonStyle&#58; &#123;
+    iconFontFamily&#58; 'Material Icons', // font used to render the button icons
+    alpha&#58; 0.5, // buttons' transparence value
+    hoverAlpha&#58; 0.7, // buttons' transparence value when mouse is over
+    bgStyle&#58; '#000000', //  buttons' background style
+    iconStyle&#58; '#ffffff', // buttons' icon colors
+    borderStyle&#58; '#000000', // buttons' border style
+    borderWidth&#58; 0 // buttons' border width (0 == disabled)
+  &#125;,
+  tooltips&#58; &#123;
+    enabled&#58; true, // enable or disable tooltips for buttons
+    bgStyle&#58; '#000000', // tooltip background style
+    bgAlpha&#58; 0.5, // tooltip background transparence
+    textStyle&#58; '#ffffff', // tooltip's text style
+    textAlpha&#58; 0.9, // tooltip's text transparence
+    padding&#58; 15, // tooltip padding
+    radius&#58; 20 // tooltip border radius
+  &#125;,
+  zoomOutButton&#58; &#123; // zoomOut button config
+    icon&#58; 'zoom_out', // icon text
+    tooltip&#58; 'Zoom out', // button tooltip
+    sortId&#58; 0, // number used to determine the order of the buttons
+    show&#58; true // used to show/hide the button
+  &#125;,
+
+  // short button configuration
+  nextPageButton&#58; createButtonConfig('navigate_next', 'Next page', 0),
+  beforePageButton&#58; createButtonConfig('navigate_before', 'Previous page', 1),
+  zoomInButton&#58; new ButtonConfig('zoom_in', 'Zoom in', 1),
+  rotateLeftButton&#58; new ButtonConfig('rotate_left', 'Rotate left', 2),
+  rotateRightButton&#58; new ButtonConfig('rotate_right', 'Rotate right', 3),
+  resetButton&#58; new ButtonConfig('autorenew', 'Reset', 4)
+&#125;;</code></pre>
+
   </div>
 </section>

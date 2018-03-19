@@ -1,0 +1,12 @@
+.no-file {
+  font-size: 3em;
+  max-width: 600px;
+  margin: auto;
+  height: calc(100vh - 330px);
+  padding: 20vh 0;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.5em;
+    padding: 12vh 0; 
+  }
+}
