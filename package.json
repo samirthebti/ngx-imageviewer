@@ -35,13 +35,13 @@
     "@angular/common": "5.x",
     "@angular/core": "5.x",
     "hammerjs": "^2.x",
-    "pdfjs-dist": "2.0.288"
+    "pdfjs-dist": "2.0.442"
   },
   "peerDependencies": {
     "@angular/common": "5.x",
     "@angular/core": "5.x",
     "hammerjs": "2.x",
-    "pdfjs-dist": "2.0.288"
+    "pdfjs-dist": "2.0.442"
   },
   "devDependencies": {
     "@angular/animations": "5.x",

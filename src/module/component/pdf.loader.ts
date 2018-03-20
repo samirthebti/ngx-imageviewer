@@ -3,8 +3,7 @@ import { ResourceLoader, Dimension, toSquareAngle } from './imageviewer.model';
 import { ImageViewerConfig } from './imageviewer.config';
 import { PDFJSStatic, PDFDocumentProxy, PDFPageProxy } from 'pdfjs-dist';
 
-declare var PDFJS: PDFJSStatic;
-declare var pdfjsDistBuildPdf: PDFJSStatic;
+declare var pdfjsDistBuildPdf: any;
 
 export class PdfResourceLoader extends ResourceLoader {
   private _pdf: PDFDocumentProxy;
@@ -13,9 +12,9 @@ export class PdfResourceLoader extends ResourceLoader {
 
   constructor(private _imageCache: ImageCacheService) {
     super();
-    PDFJS = PDFJS || pdfjsDistBuildPdf;
-    if (!PDFJS.workerSrc) {
-      PDFJS.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${(PDFJS as any).version}/pdf.worker.min.js`;
+    if (pdfjsDistBuildPdf && pdfjsDistBuildPdf.GlobalWorkerOptions && !pdfjsDistBuildPdf.GlobalWorkerOptions.workerSrc) {
+      pdfjsDistBuildPdf.GlobalWorkerOptions.workerSrc =
+        `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsDistBuildPdf.version}/pdf.worker.min.js`;
     }
     this.showItemsQuantity = true;
   }
@@ -23,7 +22,7 @@ export class PdfResourceLoader extends ResourceLoader {
   setUp() {
     const vm = this;
     if (vm.loading || !vm.src) { return; }
-    const loadingTask = PDFJS.getDocument(vm.src);
+    const loadingTask = pdfjsDistBuildPdf.getDocument(vm.src);
     vm.loading = true;
     vm.currentItem = 1;
     loadingTask.then((pdf: PDFDocumentProxy) => {
